@@ -17,7 +17,7 @@ class InventoryDashboard {
     this.statusFilter.addEventListener("change", () => this.monitorStatus());
     this.dateFilter.addEventListener("change", () => this.monitorStatus());
 
-    this.updateToolsFilter(); 
+    this.updateToolsFilter();
   }
 
   static updateToolsFilter() {
@@ -42,19 +42,18 @@ class InventoryDashboard {
     const selectedDate = this.dateFilter.value;
 
     const rows = document.querySelectorAll(".user-row");
-
     rows.forEach(row => {
-      const department = row.querySelector(".equipment-department p:nth-child(2)").textContent.toLowerCase();
-      const equipment = row.querySelector(".equipment-department p:nth-child(1)").textContent.toLowerCase();
-      const status = row.querySelector(".status").textContent.toLowerCase();
-      const returnDate = row.querySelector(".return-date").textContent;
+      const deptText = row.querySelector(".equipment-department").textContent.toLowerCase();
+      const toolText = row.querySelector(".equipment-department").textContent.toLowerCase();
+      const statusText = row.querySelector(".status").textContent.toLowerCase();
+      const returnDateText = row.querySelector(".return-date").textContent;
 
-      const matchDept = !selectedDept || department.includes(selectedDept);
-      const matchTool = !selectedTool || equipment.includes(selectedTool);
-      const matchStatus = !selectedStatus || status.includes(selectedStatus);
-      const matchDate = !selectedDate || returnDate === selectedDate;
+      const matchesDept = !selectedDept || deptText.includes(selectedDept);
+      const matchesTool = !selectedTool || toolText.includes(selectedTool);
+      const matchesStatus = !selectedStatus || statusText.includes(selectedStatus);
+      const matchesDate = !selectedDate || returnDateText === selectedDate;
 
-      row.style.display = (matchDept && matchTool && matchStatus && matchDate) ? "flex" : "none";
+      row.style.display = (matchesDept && matchesTool && matchesStatus && matchesDate) ? "flex" : "none";
     });
   }
 }

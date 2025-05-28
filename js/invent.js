@@ -13,11 +13,11 @@ class InventoryDashboard {
     this.dateFilter = document.getElementById("dateFilter");
 
     this.departmentFilter.addEventListener("change", () => this.updateToolsFilter());
-    this.toolsFilter.addEventListener("change", () => this.applyFilters());
-    this.statusFilter.addEventListener("change", () => this.applyFilters());
-    this.dateFilter.addEventListener("change", () => this.applyFilters());
+    this.toolsFilter.addEventListener("change", () => this.monitorStatus());
+    this.statusFilter.addEventListener("change", () => this.monitorStatus());
+    this.dateFilter.addEventListener("change", () => this.monitorStatus());
 
-    this.updateToolsFilter(); // Initialize tools based on department
+    this.updateToolsFilter(); 
   }
 
   static updateToolsFilter() {
@@ -32,28 +32,29 @@ class InventoryDashboard {
       this.toolsFilter.appendChild(option);
     });
 
-    this.applyFilters();
+    this.monitorStatus();
   }
 
-  static applyFilters() {
+  static monitorStatus() {
     const selectedDept = this.departmentFilter.value.toLowerCase();
     const selectedTool = this.toolsFilter.value.toLowerCase();
     const selectedStatus = this.statusFilter.value.toLowerCase();
     const selectedDate = this.dateFilter.value;
 
     const rows = document.querySelectorAll(".user-row");
+
     rows.forEach(row => {
-      const deptText = row.querySelector(".equipment-department").textContent.toLowerCase();
-      const toolText = row.querySelector(".equipment-department").textContent.toLowerCase();
-      const statusText = row.querySelector(".status").textContent.toLowerCase();
-      const returnDateText = row.querySelector(".return-date").textContent;
+      const department = row.querySelector(".equipment-department p:nth-child(2)").textContent.toLowerCase();
+      const equipment = row.querySelector(".equipment-department p:nth-child(1)").textContent.toLowerCase();
+      const status = row.querySelector(".status").textContent.toLowerCase();
+      const returnDate = row.querySelector(".return-date").textContent;
 
-      const matchesDept = !selectedDept || deptText.includes(selectedDept);
-      const matchesTool = !selectedTool || toolText.includes(selectedTool);
-      const matchesStatus = !selectedStatus || statusText.includes(selectedStatus);
-      const matchesDate = !selectedDate || returnDateText === selectedDate;
+      const matchDept = !selectedDept || department.includes(selectedDept);
+      const matchTool = !selectedTool || equipment.includes(selectedTool);
+      const matchStatus = !selectedStatus || status.includes(selectedStatus);
+      const matchDate = !selectedDate || returnDate === selectedDate;
 
-      row.style.display = (matchesDept && matchesTool && matchesStatus && matchesDate) ? "flex" : "none";
+      row.style.display = (matchDept && matchTool && matchStatus && matchDate) ? "flex" : "none";
     });
   }
 }

@@ -1,6 +1,7 @@
 class AdminPanel {
   static init() {
     AdminPanel.highlightActiveNav();
+    AdminPanel.updateToolsFilter();
   }
 
   static toolsMap = {
@@ -24,27 +25,21 @@ class AdminPanel {
       toolsFilter.appendChild(option);
     });
 
-    AdminPanel.applyFilters();
+    AdminPanel.monitorStatus();
   }
 
-  static applyFilters() {
-    const departmentFilter = document.getElementById("departmentFilter");
-    const toolsFilter = document.getElementById("toolsFilter");
-    const statusFilter = document.getElementById("statusFilter");
-    const dateFilter = document.getElementById("dateFilter");
+  static monitorStatus() {
+    const dep = document.getElementById("departmentFilter").value.toLowerCase();
+    const tool = document.getElementById("toolsFilter").value.toLowerCase();
+    const status = document.getElementById("statusFilter").value.toLowerCase();
+    const selectedDate = document.getElementById("dateFilter").value;
     const userRows = document.querySelectorAll(".user-row");
-
-    const dep = departmentFilter.value.toLowerCase();
-    const tool = toolsFilter.value.toLowerCase();
-    const status = statusFilter.value.toLowerCase();
-    const selectedDate = dateFilter.value;
 
     userRows.forEach(row => {
       const department = row.querySelector(".equipment-department p:nth-child(2)").textContent.toLowerCase();
       const equipment = row.querySelector(".equipment-department p:nth-child(1)").textContent.toLowerCase();
       const stat = row.querySelector(".status").textContent.toLowerCase();
       const returnDateRaw = row.querySelector(".return-date").textContent.trim();
-
       const returnDateFormatted = returnDateRaw.includes('.')
         ? new Date(returnDateRaw.split('.').reverse().join('-')).toISOString().split('T')[0]
         : returnDateRaw;
@@ -54,57 +49,12 @@ class AdminPanel {
       const matchesStatus = !status || stat.includes(status);
       const matchesDate = !selectedDate || returnDateFormatted === selectedDate;
 
-      row.style.display = (matchesDepartment && matchesTool && matchesStatus && matchesDate)
-        ? "flex"
-        : "none";
+      row.style.display = (matchesDepartment && matchesTool && matchesStatus && matchesDate) ? "flex" : "none";
     });
   }
 
   static openReservationForm() {
     window.location.href = "reserve.html";
-  }
-
-  static reserveTool(event) {
-    event.preventDefault();
-
-    const department = document.getElementById("department").value;
-    const tool = document.getElementById("tool").value;
-
-    if (department && tool) {
-      alert(`Reservation confirmed for ${tool} in ${department}.`);
-      window.location.href = "admin.html";
-    } else {
-      alert("Please select both department and tool.");
-    }
-  }
-
-  static cancelReservation() {
-    window.location.href = "admin.html";
-  }
-
-  static populateToolDropdown() {
-    const toolsMap = {
-      "IT & Computers": ["Laptop", "Desktop Computer", "Printer", "Projector", "Router"],
-      "Office": ["Shredder", "Photocopier"],
-      "Workshop Tools": ["Welding Machine", "Safety Gear", "Drills"],
-      "Teaching Aids": ["Smartboards", "Sound Systems"]
-    };
-
-    const departmentSelect = document.getElementById("department");
-    const toolSelect = document.getElementById("tool");
-
-    departmentSelect.addEventListener("change", () => {
-      const selectedDept = departmentSelect.value;
-      const tools = toolsMap[selectedDept] || [];
-
-      toolSelect.innerHTML = '<option value="">Select Tool</option>';
-      tools.forEach(tool => {
-        const option = document.createElement("option");
-        option.value = tool;
-        option.textContent = tool;
-        toolSelect.appendChild(option);
-      });
-    });
   }
 
   static highlightActiveNav() {
@@ -114,26 +64,6 @@ class AdminPanel {
       }
     });
   }
-  static monitorStatus() {
-  const toolFilter = document.getElementById("toolsFilter").value.toLowerCase();
-  const statusFilter = document.getElementById("statusFilter").value.toLowerCase();
-  const dateFilter = document.getElementById("dateFilter").value;
-
-  const equipmentRows = document.querySelectorAll(".user-row");
-
-  equipmentRows.forEach(row => {
-    const equipmentText = row.querySelector(".equipment-department").textContent.toLowerCase();
-    const statusText = row.querySelector(".status").textContent.toLowerCase();
-    const dateText = row.querySelector(".return-date").textContent;
-
-    const matchesTool = !toolFilter || equipmentText.includes(toolFilter);
-    const matchesStatus = !statusFilter || statusText === statusFilter;
-    const matchesDate = !dateFilter || dateText === dateFilter;
-
-    row.style.display = (matchesTool && matchesStatus && matchesDate) ? "flex" : "none";
-  });
 }
 
-}
-
-AdminPanel.init();
+document.addEventListener("DOMContentLoaded", () => AdminPanel.init());

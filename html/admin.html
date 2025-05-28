@@ -17,7 +17,6 @@
       <li><a href="repairhistory.html">Repair History</a></li>
       <li class="active"><a href="admin.html">Dashboard</a></li>
     </ul>
-
     <div class="user-footer">
       <div class="user-details">
         <p>Admin</p>
@@ -41,11 +40,11 @@
           <option value="Teaching Aids">Teaching Aids</option>
         </select>
 
-        <select id="toolsFilter" onchange="AdminPanel.applyFilters()">
+        <select id="toolsFilter" onchange="AdminPanel.monitorStatus()">
           <option value="">All Tools</option>
         </select>
 
-        <select id="statusFilter" onchange="AdminPanel.applyFilters()">
+        <select id="statusFilter" onchange="AdminPanel.monitorStatus()">
           <option value="">All Statuses</option>
           <option value="In Use">In Use</option>
           <option value="Available">Available</option>
@@ -54,9 +53,7 @@
           <option value="Returned">Returned</option>
         </select>
 
-        <input type="date" id="dateFilter" onchange="AdminPanel.applyFilters()" />
-
-    
+        <input type="date" id="dateFilter" onchange="AdminPanel.monitorStatus()" />
         <button class="add-btn" onclick="AdminPanel.openReservationForm()">Reserve Equipment</button>
       </div>
     </div>
@@ -91,6 +88,8 @@
         <div class="term">Return Date: <span class="return-date">2025-04-20</span></div>
         <div class="status returned">Returned</div>
       </div>
+
+    
     </div>
   </div>
 

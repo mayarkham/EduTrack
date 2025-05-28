@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">EduTrack</div>
+    <ul class="nav">
+      <li><a href="lifecyclealert.html">Lifecycle Alerts</a></li>
+      <li><a href="schmaint.html">Schedule Maintenance</a></li>
+      <li><a href="analytics.html">Equipment Analytics</a></li>
+      <li><a href="repairhistory.html">Repair History</a></li>
+      <li class="active"><a href="admin.html">Dashboard</a></li>
+    </ul>
+
+    <div class="user-footer">
+      <div class="user-details">
+        <p>Admin</p>
+        <small>admin@ju.edu.jo</small>
+      </div>
+      <a href="login.html" title="Logout">
+        <img src="../pictures/logout.png" alt="Logout Icon" style="width: 20px; height: 20px; cursor: pointer;">
+      </a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h2>Dashboard</h2>
+      <div class="filters">
+        <select id="departmentFilter" onchange="AdminPanel.updateToolsFilter()">
+          <option value="">All Departments</option>
+          <option value="IT & Computers">IT & Computers</option>
+          <option value="Office">Office</option>
+          <option value="Workshop Tools">Workshop Tools</option>
+          <option value="Teaching Aids">Teaching Aids</option>
+        </select>
+
+        <select id="toolsFilter" onchange="AdminPanel.applyFilters()">
+          <option value="">All Tools</option>
+        </select>
+
+        <select id="statusFilter" onchange="AdminPanel.applyFilters()">
+          <option value="">All Statuses</option>
+          <option value="In Use">In Use</option>
+          <option value="Available">Available</option>
+          <option value="Maintenance">Maintenance</option>
+          <option value="Almost Due">Almost Due</option>
+          <option value="Returned">Returned</option>
+        </select>
+
+        <input type="date" id="dateFilter" onchange="AdminPanel.applyFilters()" />
+
+    
+        <button class="add-btn" onclick="AdminPanel.openReservationForm()">Reserve Equipment</button>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="user-row">
+        <div class="user-info">
+          <div class="details">
+            <strong>Sarah Mohammad</strong>
+            <p class="contact">sarah.mohammad@ju.edu.jo</p>
+          </div>
+        </div>
+        <div class="equipment-department">
+          <p><strong>Equipment:</strong> Projector <span style="color: #888;">(ID: P-1023)</span></p>
+          <p><strong>Department:</strong> IT & Computers</p>
+        </div>
+        <div class="term">Return Date: <span class="return-date">2025-07-15</span></div>
+        <div class="status almost-due">Almost Due</div>
+      </div>
+
+      <div class="user-row">
+        <div class="user-info">
+          <div class="details">
+            <strong>Ahmed Hossam</strong>
+            <p class="contact">ah.hossam@ju.edu.jo</p>
+          </div>
+        </div>
+        <div class="equipment-department">
+          <p><strong>Equipment:</strong> Shredder <span style="color: #888;">(ID: S-2089)</span></p>
+          <p><strong>Department:</strong> Office</p>
+        </div>
+        <div class="term">Return Date: <span class="return-date">2025-04-20</span></div>
+        <div class="status returned">Returned</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>

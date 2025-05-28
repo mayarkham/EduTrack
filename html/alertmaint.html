@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Repair Alerts</title>
+  <link rel="stylesheet" href="../css/alertmaint.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">EduTrack</div>
+    <ul class="nav">
+      <li><a href="repairhistory.html">Repair History</a></li>
+      <li class="active"><a href="alertsmaint.html">Repair Alerts</a></li>
+    </ul>
+    <div class="user-footer">
+      <div class="user-details">
+        <p>Maintenance Technician</p>
+        <small>maintenance@ju.edu.jo</small>
+      </div>
+      <a href="login.html" title="Logout">
+        <img src="../pictures/logout.png" alt="Logout Icon" style="width: 20px; height: 20px; cursor: pointer;">
+      </a>
+    </div>
+  </div>
+
+    <div class="main">
+    <div class="header">
+      <h2>Repair Alerts</h2>
+    </div>
+
+    <div class="alerts-section">
+ 
+      <div class="alerts-header">
+        <label for="dateFilter">Date:</label>
+        <input type="date" id="dateFilter" />
+      </div>
+
+     
+      <div class="alert-box" data-date="2025-01-15">
+        <p><strong>Repair Alert</strong><br>
+          Pressure valve failure detected in Tool No. 19927.<br>
+          Please remove the equipment from service and schedule immediate repair.
+        </p>
+        <div class="tool-meta">
+          <span><strong>Tool No:</strong> 19927</span>
+          <span><strong>Term Date:</strong> 01.15.25</span>
+        </div>
+      </div>
+
+      <div class="alert-box" data-date="2025-01-14">
+        <p><strong>Repair Alert</strong><br>
+          Smartboard (Tool No. SB-1147) flagged for abnormal screen behavior.<br>
+          Run diagnostics and submit report within 24 hours.
+        </p>
+        <div class="tool-meta">
+          <span><strong>Tool No:</strong> SB-1147</span>
+          <span><strong>Term Date:</strong> 01.14.25</span>
+        </div>
+      </div>
+
+      <div class="alert-box" data-date="2025-01-12">
+        <p><strong>Repair Alert</strong><br>
+          Tool No. 5763 has reached 500 usage hours.<br>
+          Perform preventive maintenance by 01.11.25 to avoid equipment failure.
+        </p>
+        <div class="tool-meta">
+          <span><strong>Tool No:</strong> 5763</span>
+          <span><strong>Term Date:</strong> 01.12.25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script src="../js/alertmaint.js"></script>
+</body>
+</html>

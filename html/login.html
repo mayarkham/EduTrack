@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <img src="../pictures/loginimage.jpg" alt="Login Image">
+    </div>
+    <div class="right">
+      <div class="logo">EduTrack</div>
+      <h2>Log in</h2>
+      <p>Welcome back! Please enter your details.</p>
+
+      <input type="text" placeholder="Username" id="username">
+      <input type="password" placeholder="Password" id="password">
+
+      <div class="forgot">
+        <a href="#" onclick="UserLogin.handleForgotPassword()">Forgot my password</a>
+      </div>
+
+      <button class="btn" onclick="UserLogin.handleLogin()">Log In</button>
+    </div>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

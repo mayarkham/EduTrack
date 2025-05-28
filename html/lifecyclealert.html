@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lifecycle Alerts</title>
+  <link rel="stylesheet" href="../css/alertmaint.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">EduTrack</div>
+    <ul class="nav">
+      <li class="active"><a href="lifecyclealert.html">Lifecycle Alerts</a></li>
+        <li><a href="schmaint.html">Schedule Maintenance</a></li>
+      <li><a href="analytics.html">Equipment analytics</a></li>
+      <li><a href="repairhistory.html">Repair History</a></li>
+      <li><a href="admin.html">Dashboard</a></li>
+    </ul>
+
+    <div class="user-footer">
+      <div class="user-details">
+        <p>Admin</p>
+        <small>admin@ju.edu.jo</small>
+      </div>
+      <a href="login.html" title="Logout">
+        <img src="../pictures/logout.png" alt="Logout Icon" style="width: 20px; height: 20px; cursor: pointer;">
+      </a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h2>Lifecycle Alerts</h2>
+    </div>
+
+    <div class="alerts-section">
+      <div class="alerts-header">
+        <label for="dateFilter">Date:</label>
+        <input type="date" id="dateFilter" />
+      </div>
+
+      <div class="alert-box" data-date="2025-02-01">
+        <p><strong>Lifecycle Alert</strong><br>
+        Tool No. 8420 has reached 90% of its expected lifecycle.<br>
+        Please evaluate for replacement planning or major overhaul.</p>
+        <div class="tool-meta">
+          <span><strong>Tool No:</strong> 8420</span>
+          <span><strong>Term Date:</strong> 02.01.25</span>
+        </div>
+      </div>
+
+      <div class="alert-box" data-date="2025-01-20">
+        <p><strong>Lifecycle Alert</strong><br>
+        Projector No. PX-1183 nearing end-of-life status.<br>
+        Prepare for decommissioning or asset disposal procedures.</p>
+        <div class="tool-meta">
+          <span><strong>Tool No:</strong> PX-1183</span>
+          <span><strong>Term Date:</strong> 01.20.25</span>
+        </div>
+      </div>
+
+      <div class="alert-box" data-date="2025-01-10">
+        <p><strong>Lifecycle Alert</strong><br>
+        Equipment No. 6711 approaching lifecycle milestone (5 years in use).<br>
+        Consider full performance audit and system upgrade options.</p>
+        <div class="tool-meta">
+          <span><strong>Tool No:</strong> 6711</span>
+          <span><strong>Term Date:</strong> 01.10.25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="../js/lifecycle.js"></script>
+</body>
+</html>

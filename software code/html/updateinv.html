@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update Equipment</title>
+  <link rel="stylesheet" href="../css/updateinv.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">EduTrack</div>
+    <ul class="nav">
+      <li class="active"><a href="updateinv.html">Update Equipment</a></li>
+      <li><a href="invent.html">Dashboard</a></li>
+    </ul>
+
+    <div class="user-footer">
+      <div class="user-details">
+        <p>Inventory Manager</p>
+        <small>inventory@ju.edu.jo</small>
+      </div>
+      <a href="login.html" title="Logout">
+        <img src="../pictures/logout.png" alt="Logout Icon" style="width: 20px; height: 20px; cursor: pointer;">
+      </a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h2>Update Equipment</h2>
+    </div>
+
+    <div class="form-container">
+      <form onsubmit="handleUpdate(event)">
+        <label for="selectTool" style="margin-bottom: 10px; display: block;">Select Tool to Update:</label>
+        <select id="selectTool" class="input-large" onchange="selectToolDetails()" required>
+          <option value="">-- Select Tool --</option>
+          <option value="P-1023">Projector (P-1023)</option>
+          <option value="S-2089">Shredder (S-2089)</option>
+          <option value="L-7790">Laptop (L-7790)</option>
+          <option value="W-3321">Welding Machine (W-3321)</option>
+          <option value="SB-1147">Smartboards (SB-1147)</option>
+        </select>
+
+        <h3 class="section-title">Update Tool Information</h3>
+        <hr />
+
+        <div class="form-grid">
+          <div>
+            <label for="toolId">Tool ID:</label>
+            <input type="text" id="toolId" name="toolId" placeholder="Auto-filled" readonly />
+          </div>
+          <div>
+            <label for="newId">New ID:</label>
+            <input type="text" id="newId" name="newId" />
+          </div>
+          <div>
+            <label for="toolName">Tool Name:</label>
+            <input type="text" id="toolName" name="toolName" placeholder="Auto-filled" readonly />
+          </div>
+          <div>
+            <label for="newName">New Name:</label>
+            <input type="text" id="newName" name="newName" />
+          </div>
+          <div>
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" placeholder="Auto-filled" readonly />
+          </div>
+          <div>
+            <label for="newDepartment">New Department:</label>
+            <input type="text" id="newDepartment" name="newDepartment" />
+          </div>
+        </div>
+
+        <div class="delivery-check">
+          <label>Have the item been delivered? <span class="required">*</span></label>
+          <div class="checkbox-toggle">
+            <label><input type="checkbox" name="delivered" value="yes" onclick="selectOnlyThis(this)" required /> Yes</label>
+            <label><input type="checkbox" name="delivered" value="no" onclick="selectOnlyThis(this)" /> No</label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="cancel-btn" onclick="window.location.href='invent.html'">Cancel</button>
+          <button type="submit" class="btn">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/updateinv.js"></script>
+</body>
+</html>

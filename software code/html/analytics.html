@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Equipment Analytics</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/analytics.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">EduTrack</div>
+    <ul class="nav">
+      <li><a href="lifecyclealert.html">Lifecycle Alerts</a></li>
+      <li><a href="schmaint.html">Schedule Maintenance</a></li>
+      <li class="active"><a href="analytics.html">Equipment Analytics</a></li>
+      <li><a href="repairhistory.html">Repair History</a></li>
+      <li><a href="admin.html">Dashboard</a></li>
+    </ul>
+    <div class="user-footer">
+      <div class="user-details">
+        <p>Admin</p>
+        <small>admin@ju.edu.jo</small>
+      </div>
+      <a href="login.html" title="Logout">
+        <img src="../pictures/logout.png" alt="Logout Icon" style="width: 20px; height: 20px; cursor: pointer;">
+      </a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h2>Equipment Analytics</h2>
+    </div>
+
+    <div class="analytics-container">
+      <div class="stat-card">
+        <h3>Total Equipment</h3>
+        <p class="number">154</p>
+      </div>
+      <div class="stat-card">
+        <h3>Currently In Use</h3>
+        <p class="number">86</p>
+      </div>
+      <div class="stat-card">
+        <h3>Under Maintenance</h3>
+        <p class="number">23</p>
+      </div>
+      <div class="stat-card">
+        <h3>Available</h3>
+        <p class="number">45</p>
+      </div>
+    </div>
+
+    <div class="chart-section">
+      <div class="chart-wrapper">
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-wrapper">
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/analytics.js" defer></script>
+</body>
+</html>

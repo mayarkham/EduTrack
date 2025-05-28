@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Schedule Maintenance</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/schmaint.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">EduTrack</div>
+    <ul class="nav">
+      <li><a href="lifecyclealert.html">Lifecycle Alerts</a></li>
+      <li class="active"><a href="schmaint.html">Schedule Maintenance</a></li>
+      <li><a href="analytics.html">Equipment Analytics</a></li>
+      <li><a href="repairhistory.html">Repair History</a></li>
+      <li><a href="admin.html">Dashboard</a></li>
+    </ul>
+    <div class="user-footer">
+      <div class="user-details">
+        <p>Admin</p>
+        <small>admin@ju.edu.jo</small>
+      </div>
+      <a href="login.html">
+        <img src="../pictures/logout.png" alt="Logout" style="width: 20px; height: 20px; cursor: pointer;">
+      </a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h2>Schedule Maintenance</h2>
+      <div class="filters">
+        <select id="departmentFilter">
+          <option value="">All Departments</option>
+          <option value="IT & Computers">IT & Computers</option>
+          <option value="Office">Office</option>
+          <option value="Workshop Tools">Workshop Tools</option>
+          <option value="Teaching Aids">Teaching Aids</option>
+        </select>
+        <select id="equipmentFilter">
+          <option value="">All Equipment</option>
+        </select>
+        <input type="date" id="maintenanceDate" />
+        <button class="add-btn" onclick="openScheduleForm()">Add Schedule</button>
+      </div>
+    </div>
+
+    <div class="list" id="scheduleList">
+      <div class="user-row">
+        <div class="equipment-department">
+          <p><strong>Equipment:</strong> Smartboard <span style="color: #888;">(ID: SB-8821)</span></p>
+          <p><strong>Department:</strong> Teaching Aids</p>
+          <p><strong>Issue:</strong> Screen flickers randomly</p>
+        </div>
+        <div class="term">Scheduled: <span class="return-date">2025-08-10</span></div>
+        <div class="status in-use">Confirmed</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="scheduleModal" class="modal">
+  <div class="modal-content">
+    <h3>Add Maintenance Schedule</h3>
+
+    <div class="input-row">
+      <input type="text" id="equipmentInput" placeholder="Equipment Type" />
+      <input type="text" id="equipmentTypeInput" placeholder="Tool ID" />
+    </div>
+
+    <input type="date" id="dateInput" />
+    <textarea id="issueInput" placeholder="Describe the issue or reason for maintenance"></textarea>
+
+    <div class="modal-actions">
+      <button onclick="addSchedule()">Add</button>
+      <button onclick="closeScheduleForm()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <script src="../js/schmaint.js"></script>
+</body>
+</html>

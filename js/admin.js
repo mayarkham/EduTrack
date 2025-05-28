@@ -114,6 +114,26 @@ class AdminPanel {
       }
     });
   }
+  static monitorStatus() {
+  const toolFilter = document.getElementById("toolsFilter").value.toLowerCase();
+  const statusFilter = document.getElementById("statusFilter").value.toLowerCase();
+  const dateFilter = document.getElementById("dateFilter").value;
+
+  const equipmentRows = document.querySelectorAll(".user-row");
+
+  equipmentRows.forEach(row => {
+    const equipmentText = row.querySelector(".equipment-department").textContent.toLowerCase();
+    const statusText = row.querySelector(".status").textContent.toLowerCase();
+    const dateText = row.querySelector(".return-date").textContent;
+
+    const matchesTool = !toolFilter || equipmentText.includes(toolFilter);
+    const matchesStatus = !statusFilter || statusText === statusFilter;
+    const matchesDate = !dateFilter || dateText === dateFilter;
+
+    row.style.display = (matchesTool && matchesStatus && matchesDate) ? "flex" : "none";
+  });
+}
+
 }
 
 AdminPanel.init();

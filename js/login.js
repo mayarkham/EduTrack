@@ -32,9 +32,8 @@ class UserLogin {
   static handleForgotPassword() {
     alert("Please contact IT support at It_supdesk@ju.edu.jo to reset your password.");
   }
-  <script>
+
   window.onload = () => {
     console.log("");
   };
-</script>
 }

@@ -33,7 +33,5 @@ class UserLogin {
     alert("Please contact IT support at It_supdesk@ju.edu.jo to reset your password.");
   }
 
-  window.onload = () => {
-    console.log("");
-  };
+
 }

@@ -9,8 +9,6 @@ class EquipmentAnalytics {
   static init() {
     this.renderBarChart();
     this.renderPieChart();
-    // Uncomment the line below if using dynamic sidebar
-    // this.buildSidebar();
   }
 
   static renderBarChart() {
@@ -82,58 +80,7 @@ class EquipmentAnalytics {
     });
   }
 
-  // Only use if sidebar is not hardcoded
-  static buildSidebar() {
-    const role = localStorage.getItem("userRole") || "Admin";
-    const sidebar = document.getElementById("sidebar");
-
-    const navItems = {
-      Admin: [
-        { name: "Lifecycle Alerts", href: "lifecyclealert.html" },
-        { name: "Schedule Maintenance", href: "schmaint.html" },
-        { name: "Equipment Analytics", href: "analytics.html", active: true },
-        { name: "Repair History", href: "repairhistory.html" },
-        { name: "Dashboard", href: "admin.html" }
-      ],
-      Maintenance: [
-        { name: "Repair History", href: "repairhistory.html" },
-        { name: "Repair Alerts", href: "alertmaint.html" }
-      ]
-    };
-
-    const footerInfo = {
-      Admin: {
-        name: "Admin",
-        email: "admin@ju.edu.jo"
-      },
-      Maintenance: {
-        name: "Maintenance Technician",
-        email: "maintenance@ju.edu.jo"
-      }
-    };
-
-    const links = navItems[role] || navItems.Admin;
-    const user = footerInfo[role] || footerInfo.Admin;
-
-    sidebar.innerHTML = `
-      <div class="logo">EduTrack</div>
-      <ul class="nav">
-        ${links.map(link => `
-          <li class="${link.active ? "active" : ""}">
-            <a href="${link.href}">${link.name}</a>
-          </li>`).join("")}
-      </ul>
-      <div class="user-footer">
-        <div class="user-details">
-          <p>${user.name}</p>
-          <small>${user.email}</small>
-        </div>
-        <a href="login.html" title="Logout">
-          <img src="../pictures/logout.png" alt="Logout Icon" style="width: 20px; height: 20px; cursor: pointer;">
-        </a>
-      </div>
-    `;
-  }
+ 
 }
 
 document.addEventListener("DOMContentLoaded", () => {

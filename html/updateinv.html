@@ -32,9 +32,9 @@
     </div>
 
     <div class="form-container">
-      <form onsubmit="handleUpdate(event)">
+      <form>
         <label for="selectTool" style="margin-bottom: 10px; display: block;">Select Tool to Update:</label>
-        <select id="selectTool" class="input-large" onchange="selectToolDetails()" required>
+        <select id="selectTool" class="input-large" required>
           <option value="">-- Select Tool --</option>
           <option value="P-1023">Projector (P-1023)</option>
           <option value="S-2089">Shredder (S-2089)</option>
@@ -76,13 +76,13 @@
         <div class="delivery-check">
           <label>Have the item been delivered? <span class="required">*</span></label>
           <div class="checkbox-toggle">
-            <label><input type="checkbox" name="delivered" value="yes" onclick="selectOnlyThis(this)" required /> Yes</label>
-            <label><input type="checkbox" name="delivered" value="no" onclick="selectOnlyThis(this)" /> No</label>
+            <label><input type="checkbox" name="delivered" value="yes" required /> Yes</label>
+            <label><input type="checkbox" name="delivered" value="no" /> No</label>
           </div>
         </div>
 
         <div class="form-actions">
-          <button type="button" class="cancel-btn" onclick="window.location.href='invent.html'">Cancel</button>
+          <button type="button" class="cancel-btn">Cancel</button>
           <button type="submit" class="btn">Update</button>
         </div>
       </form>
